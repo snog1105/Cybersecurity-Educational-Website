@@ -1,0 +1,21 @@
+---
+import background from '../assets/background.svg';
+---
+
+
+<div class="site-container">
+	<img id="background" src={background.src} alt="" fetchpriority="high" />
+	<main class="site-main">
+		<h1 class="site-title">Cybersecurity Educational Website</h1>
+		<nav class="tabs" style="justify-content:center;margin:16px 0;">
+			<a class="tab" href="/content-analysis">Content Analysis</a>
+			<a class="tab" href="/quizzes">Quizzes</a>
+			<a class="tab" href="/learning">Learning</a>
+		</nav>
+
+		<section class="card" style="text-align:center;">
+			<h2 class="section-title">Welcome!</h2>
+			<p class="lead">Select a tab above to explore content analysis, quizzes, or learning resources for cybersecurity. You'll find interactive assessments and real-life scenarios to build practical skills.</p>
+		</section>
+	</main>
+</div>

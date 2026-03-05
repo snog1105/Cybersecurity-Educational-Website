@@ -1,0 +1,13 @@
+---
+import background from '../assets/background.svg';
+---
+<head>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<div id="container" class="site-container">
+  <img id="background" src={background.src} alt="" fetchpriority="high" />
+  <main class="site-main">
+    <slot />
+  </main>
+</div>

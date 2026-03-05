@@ -1,0 +1,13 @@
+---
+import PlayfulLayout from '../layouts/PlayfulLayout.astro';
+import ScamChecker from '../components/ScamChecker.jsx';
+import HomeButton from '../components/HomeButton.astro';
+---
+<PlayfulLayout>
+  <div>
+    <HomeButton />
+    <h1 class="site-title">Content Analysis</h1>
+    <p class="lead">Explore practical tools to analyze emails, phone numbers, and URLs for signs of fraud or abuse. Use the checker below to get quick guidance and technical details.</p>
+    <ScamChecker client:load />
+  </div>
+</PlayfulLayout>

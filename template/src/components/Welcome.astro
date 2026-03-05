@@ -1,0 +1,19 @@
+---
+import astroLogo from '../assets/astro.svg';
+import background from '../assets/background.svg';
+---
+
+<div class="site-container">
+  <img id="background" src={background.src} alt="" fetchpriority="high" />
+  <main class="site-main">
+	<section>
+	  <img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" />
+	  <h1 class="site-title">Welcome to the Cybersecurity Educational Website</h1>
+	  <p class="lead">Explore content analysis tools, interactive quizzes, and learning resources to improve your cybersecurity skills.</p>
+	  <div style="display:flex;gap:10px;margin-top:12px;">
+		<a class="btn" href="/quizzes">Take a Quiz</a>
+		<a class="btn secondary" href="/learning">Start Learning</a>
+	  </div>
+	</section>
+  </main>
+</div>

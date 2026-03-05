@@ -1,0 +1,21 @@
+---
+import HomeButton from '../components/HomeButton.astro';
+import PlayfulLayout from '../layouts/PlayfulLayout.astro';
+---
+
+<PlayfulLayout>
+  <div style="min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.25rem;padding:2rem;text-align:center;">
+    <HomeButton />
+    <h1 class="site-title">Learning Videos</h1>
+    <p class="lead">Explore short videos on core cybersecurity topics. Click a card below to open the full video page.</p>
+
+    <div class="topic-grid">
+      <div class="topic-card"><a href="/malware">Video 1: Malware</a></div>
+      <div class="topic-card"><a href="/phishing">Video 2: Phishing</a></div>
+      <div class="topic-card"><a href="/cryptography">Video 3: Cryptography</a></div>
+      <div class="topic-card"><a href="/network-security">Video 4: Network Security</a></div>
+    </div>
+  </div>
+</PlayfulLayout>
+
+
