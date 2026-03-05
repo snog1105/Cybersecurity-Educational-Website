@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root{
+  --bg-start: #f3f7ff; /* light blue wash */
+  --bg-accent-1: rgba(50,69,255,0.06);
+  --bg-accent-2: rgba(188,82,238,0.05);
+  --surface: #fffaf8; /* very subtle warm card */
+  --muted: #6b7280;
+  --text: #071438;
+  --primary1: #3245ff; /* blue */
+  --primary2: #bc52ee; /* purple */
+  --accent: #ff8a3a; /* orange */
+  --radius:12px;
+  --glass: rgba(255,255,255,0.6);
+}
+
+/* Basic reset */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background-image: radial-gradient(circle at 10% 10%, var(--bg-accent-2), transparent 8%), radial-gradient(circle at 90% 80%, var(--bg-accent-1), transparent 14%), linear-gradient(180deg, var(--bg-start), #fffaf6);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+.site-container{
+  min-height:100vh;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:48px 20px;
+}
+
+main.site-main{
+  width:100%;
+  max-width:1100px;
+  background: linear-gradient(180deg, var(--surface), #f7fbff);
+  border-radius:20px;
+  padding:36px;
+  box-shadow:0 18px 50px rgba(50,69,255,0.06);
+  border-left:6px solid rgba(188,82,238,0.06);
+}
+
+h1.site-title{
+  margin:0 0 12px 0;
+  font-size:1.95rem;
+  font-weight:800;
+  background: linear-gradient(90deg, var(--primary1), var(--primary2), var(--accent));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+p.lead{
+  color:var(--muted);
+  margin:0 0 20px 0;
+}
+
+.card{
+  background:linear-gradient(180deg,#ffffff,#fff8ff);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:0 10px 30px rgba(16,24,40,0.05);
+  border:1px solid rgba(188,82,238,0.06);
+}
+
+.grid{display:grid;gap:18px}
+.grid.cols-2{grid-template-columns:1fr 1fr}
+
+.section-title{font-size:1.5rem;color:var(--primary1);margin:0 0 8px 0}
+.media{width:100%;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(16,24,40,0.06);border:1px solid rgba(15,23,36,0.04)}
+.pager{display:flex;gap:12px;justify-content:center;align-items:center}
+.quiz-card{margin-bottom:18px;padding:16px;border-radius:12px;background:linear-gradient(180deg,#ffffff,#fbfeff);border:1px solid rgba(15,23,36,0.03)}
+.option{display:block;margin:8px 0;padding:10px;border-radius:8px;background:#fbfbff;border:1px solid #eef2ff;cursor:pointer}
+.option input{margin-right:8px}
+.feedback{margin-top:12px;padding:12px;border-radius:10px;background:#f6f9fb;border:1px solid #eef2ff}
+.feedback .correct{background:#d1ffd1;color:#064e3b;padding:6px;border-radius:6px;margin-right:8px}
+.feedback .incorrect{background:#ffd1d1;color:#7c2d12;padding:6px;border-radius:6px;margin-right:8px}
+
+/* topic cards for learning page */
+.topic-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;width:100%;max-width:720px;margin:0 auto}
+.topic-card{padding:14px;border-radius:12px;background:linear-gradient(135deg,#ffffffcc,#f3f4ffcc);border:1px solid rgba(15,23,36,0.04);display:flex;align-items:center;justify-content:center;min-height:96px;transition:transform .18s ease,box-shadow .18s ease}
+.topic-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 28px rgba(16,24,40,0.08)}
+.topic-card a{display:block;text-decoration:none;color:var(--text);font-weight:700}
+
+@media (max-width:700px){.topic-grid{grid-template-columns:1fr;gap:12px}.topic-card{min-height:80px}}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(90deg,var(--primary1),var(--primary2));color:#fff;padding:10px 14px;border-radius:12px;border:none;cursor:pointer;font-weight:700;
+  box-shadow:0 10px 30px rgba(50,69,255,0.12), 0 2px 6px rgba(188,82,238,0.06);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(50,69,255,0.14)}
+.btn.secondary{background:linear-gradient(90deg,#fff7f0,#fffaf6);color:var(--primary2);border:1px solid rgba(188,82,238,0.12);box-shadow:none}
+
+/* forms */
+input[type=text],textarea,select{
+  width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(15,23,36,0.06);
+  background:linear-gradient(180deg, #fff, #fbfdff);
+}
+
+/* Scam checker / result UI */
+.form-row{display:flex;gap:12px;align-items:flex-start}
+.form-col{flex:1}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.95rem}
+.badge.safe{background:linear-gradient(90deg,var(--primary1),var(--primary2));color:#fff;border:1px solid rgba(50,69,255,0.12)}
+.badge.risky{background:linear-gradient(90deg,#ffd59a,#ff8a3a);color:#48230a;border:1px solid rgba(255,138,58,0.15)}
+.badge.unknown{background:linear-gradient(90deg,#f3f4f6,#fff7f3);color:#374151}
+.result-card{margin-top:16px;padding:16px;border-radius:12px;border:1px solid rgba(188,82,238,0.06);box-shadow:0 12px 30px rgba(50,69,255,0.06);background:linear-gradient(180deg,#fffaf8,#f7fbff)}
+.result-card h3{margin:0 0 8px 0}
+.result-details{font-family:monospace;background:#0f17241a;padding:12px;border-radius:8px;overflow:auto;max-height:280px}
+.spinner{width:18px;height:18px;border-radius:50%;border:3px solid rgba(255,255,255,0.2);border-top-color:rgba(255,255,255,0.7);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.tabs{display:flex;gap:12px;margin-bottom:18px}
+.tab{padding:8px 14px;border-radius:10px;background:transparent;border:1px solid transparent;color:var(--muted);cursor:pointer}
+.tab.active{background:linear-gradient(90deg,var(--primary1),var(--primary2));color:#fff;border-color:rgba(50,69,255,0.12)}
+
+/* background image */
+#background{position:fixed;inset:0;width:100vw;height:100vh;object-fit:cover;z-index:-1;opacity:0.38;filter:blur(40px) saturate(1.2);animation:bg-anim 30s linear infinite}
+
+@keyframes bg-anim{
+  0%{transform:scale(1) translateY(0) hue-rotate(0deg)}
+  50%{transform:scale(1.02) translateY(-6px) hue-rotate(180deg)}
+  100%{transform:scale(1) translateY(0) hue-rotate(360deg)}
+}
+
+/* small screens */
+@media (max-width:800px){
+  .site-container{padding:24px 14px}
+  main.site-main{padding:20px;border-radius:14px}
+  .grid.cols-2{grid-template-columns:1fr}
+}

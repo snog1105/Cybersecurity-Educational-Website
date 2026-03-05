@@ -1,0 +1,9 @@
+---
+import PlayfulLayout from '../layouts/PlayfulLayout.astro';
+import QuizMultiPage from '../components/QuizMultiPage.jsx';
+import HomeButton from '../components/HomeButton.astro';
+---
+<PlayfulLayout>
+  <HomeButton />
+  <QuizMultiPage client:load />
+</PlayfulLayout>
