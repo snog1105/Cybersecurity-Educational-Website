@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 export default function ScamChecker() {
-  // Client-side API base URL: prefer PUBLIC_API_URL, else use localhost in dev, else same-origin
+  // Client-side API base URL: use PUBLIC_API_URL if set, otherwise same-origin (no localhost fallback)
   const API_BASE = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.PUBLIC_API_URL)
     ? import.meta.env.PUBLIC_API_URL
-    : (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.DEV ? 'http://localhost:5000' : '');
-  const ANALYZE_URL = `${API_BASE ? API_BASE : ''}/api/analyze`;
+    : '';
+  const ANALYZE_URL = `${API_BASE}/api/analyze`;
 
   const [contentType, setContentType] = useState("");
   const [content, setContent] = useState("");
