@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
 export default function ScamChecker() {
+  // Client-side API base URL: prefer PUBLIC_API_URL, else use localhost in dev, else same-origin
+  const API_BASE = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.PUBLIC_API_URL)
+    ? import.meta.env.PUBLIC_API_URL
+    : (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.DEV ? 'http://localhost:5000' : '');
+  const ANALYZE_URL = `${API_BASE ? API_BASE : ''}/api/analyze`;
+
   const [contentType, setContentType] = useState("");
   const [content, setContent] = useState("");
   const [result, setResult] = useState(null);
@@ -12,7 +18,7 @@ export default function ScamChecker() {
     setResult(null);
 
     try {
-      const response = await fetch("http://localhost:5000/api/analyze", {
+      const response = await fetch(ANALYZE_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ contentType, content })
