@@ -44,3 +44,23 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Deploying the API to Render
+
+This project includes a small Express API (server.js) used by the frontend. To deploy the API on Render, follow these steps:
+
+- **Set environment variables:** In the Render dashboard for your service, set the following env vars:
+	- `IPQS_API_KEY` — your IPQualityScore API key (required).
+	- `CORS_ORIGIN` — the allowed origin for browser requests (optional; default `http://localhost:4321`).
+	- `PORT` — Render will provide a `PORT` value automatically; leave unset unless you have a special need.
+
+- **Start command:** Render should run `npm start` (the `start` script runs `node server.js`).
+
+- **Local testing:** Copy `.env.example` to `.env` and fill values, then run:
+
+```bash
+npm install
+npm start
+```
+
+Do NOT commit a `.env` file with real secrets to source control.
