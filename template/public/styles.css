@@ -52,6 +52,7 @@ h1.site-title{
   background: linear-gradient(90deg, var(--primary1), var(--primary2), var(--accent));
   -webkit-background-clip: text;
   color: transparent;
+  text-align: center;
 }
 
 p.lead{
@@ -119,6 +120,59 @@ input[type=text],textarea,select{
 .tabs{display:flex;gap:12px;margin-bottom:18px}
 .tab{padding:8px 14px;border-radius:10px;background:transparent;border:1px solid transparent;color:var(--muted);cursor:pointer}
 .tab.active{background:linear-gradient(90deg,var(--primary1),var(--primary2));color:#fff;border-color:rgba(50,69,255,0.12)}
+
+/* navigation icon spacing */
+.nav-icon{vertical-align:middle;margin-right:8px;opacity:0.9}
+
+/* Feature cards */
+.feature-section{margin-top:20px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:14px}
+.feature-card{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:18px;border-radius:12px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(15,23,36,0.04);box-shadow:0 10px 24px rgba(16,24,40,0.04);text-decoration:none;color:var(--text);transition:transform .14s ease,box-shadow .14s ease}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(16,24,40,0.08)}
+.feature-card h3{margin:0;color:var(--primary1)}
+.feature-card p{margin:0;color:var(--muted)}
+.feature-icon{width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--primary1),var(--primary2));color:#fff}
+.feature-btn{margin-top:auto;background:transparent;padding:8px 12px;border-radius:10px;color:var(--primary1);font-weight:700;border:1px solid rgba(50,69,255,0.08)}
+
+/* Why section */
+.why-section{margin-top:28px;padding:18px}
+.stats{display:flex;gap:18px;justify-content:center;align-items:flex-start;margin-top:12px}
+.stat-item{display:flex;flex-direction:column;align-items:center;gap:8px;max-width:220px;text-align:center}
+.stat-icon{font-size:28px}
+.stat-text{color:var(--muted)}
+
+/* Challenge and roadmap */
+.challenge-section{margin-top:28px;padding:18px}
+.challenge-grid{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+.challenge-card{padding:16px;border-radius:12px;background:linear-gradient(180deg,#fffaf8,#f7fbff);border:1px solid rgba(188,82,238,0.06);box-shadow:0 8px 28px rgba(50,69,255,0.04)}
+.video-actions{display:flex;gap:12px;justify-content:center}
+.challenge-card .muted{color:var(--muted);margin:8px 0}
+.tip-and-journey{display:flex;flex-direction:column;gap:12px}
+.tip-box{padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff7f0,#fffaf6);border:1px solid rgba(188,82,238,0.08)}
+
+.roadmap{padding:12px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(15,23,36,0.04)}
+.roadmap h3{margin:0 0 8px 0}
+.roadmap-steps{display:flex;gap:12px}
+.roadmap-step{flex:1;padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(15,23,36,0.03);text-align:center}
+.step-icon{font-size:20px;margin-bottom:8px}
+.step-title{font-weight:700;color:var(--primary1)}
+.step-desc{color:var(--muted);font-size:0.95rem}
+
+/* Footer */
+.site-footer{margin-top:28px;padding:18px;border-top:1px solid rgba(15,23,36,0.04)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.footer-links a{margin-left:12px;color:var(--muted);text-decoration:none}
+
+/* Responsive adjustments */
+@media (max-width:900px){
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .challenge-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:600px){
+  .feature-grid{grid-template-columns:1fr}
+  .roadmap-steps{flex-direction:column}
+}
 
 /* background image */
 #background{position:fixed;inset:0;width:100vw;height:100vh;object-fit:cover;z-index:-1;opacity:0.38;filter:blur(40px) saturate(1.2);animation:bg-anim 30s linear infinite}

@@ -6,16 +6,127 @@ import background from '../assets/background.svg';
 <div class="site-container">
 	<img id="background" src={background.src} alt="" fetchpriority="high" />
 	<main class="site-main">
-		<h1 class="site-title">Cybersecurity Educational Website</h1>
-		<nav class="tabs" style="justify-content:center;margin:16px 0;">
-			<a class="tab" href="/content-analysis">Content Analysis</a>
-			<a class="tab" href="/quizzes">Quizzes</a>
-			<a class="tab" href="/learning">Learning</a>
+		<h1 class="site-title">HackProof: Learn to Defend the Digital World</h1>
+		<nav class="tabs" style="justify-content:center;margin:18px 0 28px;">
+			<a class="tab" href="/content-analysis">
+				<svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 10-.71.71l.27.28v.79L20 20.49 21.49 19 15.5 14zM10.5 15a4.5 4.5 0 110-9 4.5 4.5 0 010 9z"/></svg>
+				Content Analysis
+			</a>
+			<a class="tab" href="/learning">
+				<svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 3L2 9l10 6 10-6-10-6zm0 7.5L4.2 9 12 5.5 19.8 9 12 10.5zM2 17l10 6 10-6v2l-10 6L2 19v-2z"/></svg>
+				Learning
+			</a>
+			<a class="tab" href="/quizzes">
+				<svg class="nav-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M11 9h2V7h-2v2zm1-9C5.48 0 1 4.48 1 10s4.48 10 10 10 10-4.48 10-10S16.52 0 12 0zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8c4.41 0 8 3.59 8 8s-3.59 8-8 8z"/></svg>
+				Quizzes
+			</a>
 		</nav>
 
 		<section class="card" style="text-align:center;">
 			<h2 class="section-title">Welcome!</h2>
 			<p class="lead">Select a tab above to explore content analysis, quizzes, or learning resources for cybersecurity. You'll find interactive assessments and real-life scenarios to build practical skills.</p>
 		</section>
+
+		<!-- Explore Cybersecurity feature cards -->
+		<section class="feature-section">
+			<h2 class="section-title" style="text-align:center;margin-top:22px">Explore Cybersecurity</h2>
+			<div class="feature-grid">
+				<a class="feature-card" href="/content-analysis">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 10-.71.71l.27.28v.79L20 20.49 21.49 19 15.5 14zM10.5 15a4.5 4.5 0 110-9 4.5 4.5 0 010 9z"/></svg>
+					</div>
+					<h3>Content Analysis</h3>
+					<p>Analyze suspicious messages, emails, and websites to identify cybersecurity threats.</p>
+					<span class="feature-btn">Start Analyzing</span>
+				</a>
+				<a class="feature-card" href="/learning">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M12 3L2 9l10 6 10-6-10-6zm0 7.5L4.2 9 12 5.5 19.8 9 12 10.5zM2 17l10 6 10-6v2l-10 6L2 19v-2z"/></svg>
+					</div>
+					<h3>Learning Modules</h3>
+					<p>Learn core cybersecurity concepts such as malware, phishing, cryptography, and network security.</p>
+					<span class="feature-btn">Start Learning</span>
+				</a>
+				<a class="feature-card" href="/quizzes">
+					<div class="feature-icon">
+						<svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M11 9h2V7h-2v2zm1-9C5.48 0 1 4.48 1 10s4.48 10 10 10 10-4.48 10-10S16.52 0 12 0zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8c4.41 0 8 3.59 8 8s-3.59 8-8 8z"/></svg>
+					</div>
+					<h3>Cybersecurity Quizzes</h3>
+					<p>Test your cybersecurity knowledge through interactive quizzes and real-world scenarios.</p>
+					<span class="feature-btn">Take a Quiz</span>
+				</a>
+			</div>
+		</section>
+
+		<!-- Why Cybersecurity Matters -->
+		<section class="why-section">
+			<h2 class="section-title">Why Cybersecurity Matters</h2>
+			<p class="lead" style="max-width:800px;margin:10px auto 18px;">Every day, millions of cyberattacks occur across the internet. Learning cybersecurity basics helps individuals recognize threats, protect their personal data, and safely navigate the digital world.</p>
+			<div class="stats">
+				<div class="stat-item">
+					<div class="stat-icon">🔒</div>
+					<div class="stat-text">3.4 billion phishing emails are sent every day</div>
+				</div>
+				<div class="stat-item">
+					<div class="stat-icon">⏱️</div>
+					<div class="stat-text">A cyberattack occurs approximately every 39 seconds</div>
+				</div>
+				<div class="stat-item">
+					<div class="stat-icon">🛡️</div>
+					<div class="stat-text">Over 90% of data breaches begin with human error</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Try a Cyber Challenge -->
+		<section class="challenge-section">
+			<h2 class="section-title">Try a Cyber Challenge</h2>
+			<div class="challenge-grid">
+				<div class="challenge-card">
+					<strong>Subject:</strong> Urgent Account Verification Required
+					<p class="muted">“Your account has been temporarily locked. Click the link below to verify your identity immediately.”</p>
+					<a class="btn" href="/content-analysis" style="margin-top:8px;">Analyze This Message</a>
+				</div>
+				<div class="tip-and-journey">
+					<div class="tip-box">
+						<strong>Cyber Tip of the Day</strong>
+						<p>Never reuse the same password across multiple websites. If one account is compromised, attackers often try the same password on other services.</p>
+					</div>
+					<!-- Roadmap -->
+					<div class="roadmap">
+						<h3>Your Cybersecurity Journey</h3>
+						<div class="roadmap-steps">
+							<div class="roadmap-step">
+								<div class="step-icon">📘</div>
+								<div class="step-title">Learn the Basics</div>
+								<div class="step-desc">Understand common online threats and security practices.</div>
+							</div>
+							<div class="roadmap-step">
+								<div class="step-icon">🔎</div>
+								<div class="step-title">Analyze Real Threats</div>
+								<div class="step-desc">Practice identifying phishing attempts and suspicious activity.</div>
+							</div>
+							<div class="roadmap-step">
+								<div class="step-icon">🏆</div>
+								<div class="step-title">Test Your Knowledge</div>
+								<div class="step-desc">Complete quizzes to reinforce your cybersecurity skills.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="site-footer">
+			<div class="footer-inner">
+				<div>HackProof © 2026<br/>Cybersecurity Education Project</div>
+				<div class="footer-links">
+					<a href="#">Resources</a>
+					<a href="#">About</a>
+					<a href="#">Contact</a>
+				</div>
+			</div>
+		</footer>
 	</main>
 </div>
