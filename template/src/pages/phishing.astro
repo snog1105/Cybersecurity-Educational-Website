@@ -1,3 +1,9 @@
+---
+import HomeButton from '../components/HomeButton.astro';
+import PlayfulLayout from '../layouts/PlayfulLayout.astro';
+---
+
+<PlayfulLayout>
   <div>
     <HomeButton />
     <h1 class="site-title">Phishing</h1>
@@ -8,11 +14,9 @@
 
     <p class="lead">Explains common phishing methods, how to recognize suspicious messages, and steps to stay safe.</p>
 
-    <a class="btn" href="/cryptography">Next: Cryptography</a>
-  </div>
-
-    <p>Explains common phishing methods, how to recognize suspicious messages, and steps to stay safe.</p>
-
-    <a class="btn" href="/cryptography">Next: Cryptography </a>
+    <div class="video-actions" style="display:flex;gap:12px;justify-content:center;margin-top:12px;">
+      <a class="btn secondary" href="/malware">Back</a>
+      <a class="btn" href="/cryptography">Next: Cryptography</a>
+    </div>
   </div>
 </PlayfulLayout>
