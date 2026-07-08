@@ -1,9 +1,12 @@
 ---
 import HomeButton from '../components/HomeButton.astro';
 import PlayfulLayout from '../layouts/PlayfulLayout.astro';
+
+const title = 'How to Spot Phishing Attacks | HackProof';
+const description = 'Learn the tactics behind phishing emails and messages, see real-world examples, and practice identifying scams with interactive exercises.';
 ---
 
-<PlayfulLayout>
+<PlayfulLayout title={title} description={description}>
   <div>
     <HomeButton />
     <h1 class="site-title">Phishing</h1>

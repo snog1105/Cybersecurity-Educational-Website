@@ -1,0 +1,29 @@
+---
+import HomeButton from '../components/HomeButton.astro';
+import PlayfulLayout from '../layouts/PlayfulLayout.astro';
+
+const title = 'About HackProof | Cybersecurity Education for Everyone';
+const description = 'HackProof is a free, independent cybersecurity education project — learn why it exists and what it aims to teach.';
+---
+
+<PlayfulLayout title={title} description={description}>
+  <div style="max-width:800px;margin:0 auto;text-align:left;">
+    <HomeButton />
+    <h1 class="site-title">About HackProof</h1>
+
+    <section class="card" style="margin-bottom:20px;">
+      <h2 class="section-title">Our Mission</h2>
+      <p class="lead">HackProof is a free, independent cybersecurity education project built to make core security concepts approachable for beginners. Cyberattacks affect everyone — not just IT professionals — so this site focuses on the everyday threats people actually encounter: phishing emails, malware, weak passwords, and unsafe networks.</p>
+    </section>
+
+    <section class="card" style="margin-bottom:20px;">
+      <h2 class="section-title">What You'll Find Here</h2>
+      <p>HackProof combines short video lessons, an interactive content analyzer, and scenario-based quizzes covering malware, phishing, cryptography, and network security. Every module is designed to be practical: instead of just defining terms, we walk through real examples of the tactics attackers use and how to recognize them.</p>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Why It Matters</h2>
+      <p>Most data breaches start with a simple human mistake — a clicked link, a reused password, an urgent-sounding email that wasn't questioned. HackProof exists to close that gap with free, accessible security literacy, so that anyone, regardless of technical background, can learn to spot a threat before it becomes a problem.</p>
+    </section>
+  </div>
+</PlayfulLayout>

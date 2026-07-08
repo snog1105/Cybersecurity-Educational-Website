@@ -1,13 +1,14 @@
 ---
 import background from '../assets/background.svg';
----
-<head>
-  <link rel="stylesheet" href="/styles.css" />
-</head>
+import Layout from './Layout.astro';
 
-<div id="container" class="site-container">
-  <img id="background" src={background.src} alt="" fetchpriority="high" />
-  <main class="site-main">
-    <slot />
-  </main>
-</div>
+const { title, description } = Astro.props;
+---
+<Layout title={title} description={description}>
+  <div id="container" class="site-container">
+    <img id="background" src={background.src} alt="" fetchpriority="high" />
+    <main class="site-main">
+      <slot />
+    </main>
+  </div>
+</Layout>

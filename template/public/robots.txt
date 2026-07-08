@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hackproof-tau.vercel.app/sitemap-index.xml
