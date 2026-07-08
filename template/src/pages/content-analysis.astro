@@ -2,12 +2,22 @@
 import PlayfulLayout from '../layouts/PlayfulLayout.astro';
 import ScamChecker from '../components/ScamChecker.jsx';
 import HomeButton from '../components/HomeButton.astro';
+
+const title = 'Free Content & Phishing Analyzer | HackProof';
+const description = 'Paste a message, email, or link and get an instant breakdown of red flags and threat indicators. Free, no signup required.';
 ---
-<PlayfulLayout>
+<PlayfulLayout title={title} description={description}>
   <div>
     <HomeButton />
     <h1 class="site-title">Content Analysis</h1>
     <p class="lead">Explore practical tools to analyze emails, phone numbers, and URLs for signs of fraud or abuse. Use the checker below to get quick guidance and technical details.</p>
+
+    <section style="max-width:800px;margin:0 auto 24px;text-align:left;">
+      <h2 class="section-title">How the Content Analyzer Works</h2>
+      <p>Scammers rely on messages that look almost legitimate — a spoofed sender address, a shortened link, or a phone number pretending to belong to a bank or delivery service. Our free content analyzer checks the text, links, and contact details you paste in against common patterns used in phishing emails, smishing texts, and fraudulent calls, then explains exactly what it found and why it matters.</p>
+      <p>This tool won't replace your own judgment, but it gives you a fast second opinion before you click a link, reply to an email, or call a number back. Paste in a suspicious email, a text message, a phone number, or a URL below to get started — no account or signup required.</p>
+    </section>
+
     <ScamChecker client:load />
   </div>
 </PlayfulLayout>

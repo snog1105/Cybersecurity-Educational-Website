@@ -1,9 +1,12 @@
 ---
 import HomeButton from '../components/HomeButton.astro';
 import PlayfulLayout from '../layouts/PlayfulLayout.astro';
+
+const title = 'Network Security Fundamentals | HackProof';
+const description = 'Learn how networks get attacked and defended, from firewalls to intrusion detection, in this hands-on introduction to network security.';
 ---
 
-<PlayfulLayout>
+<PlayfulLayout title={title} description={description}>
   <div>
     <HomeButton />
     <h1 class="site-title">Network Security</h1>

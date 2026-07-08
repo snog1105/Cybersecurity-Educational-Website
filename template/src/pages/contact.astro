@@ -1,0 +1,20 @@
+---
+import HomeButton from '../components/HomeButton.astro';
+import PlayfulLayout from '../layouts/PlayfulLayout.astro';
+
+const title = 'Contact HackProof';
+const description = 'Get in touch with the HackProof team with questions, feedback, or suggestions for new cybersecurity modules.';
+---
+
+<PlayfulLayout title={title} description={description}>
+  <div style="max-width:800px;margin:0 auto;text-align:left;">
+    <HomeButton />
+    <h1 class="site-title">Contact Us</h1>
+
+    <section class="card">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="lead">Have a question, spotted an issue, or want to suggest a new topic for the learning modules? HackProof is an open project on GitHub — the best way to reach us is through the repository.</p>
+      <a class="btn" href="https://github.com/snog1105/Cybersecurity-Educational-Website" target="_blank" rel="noopener noreferrer">Open an Issue on GitHub</a>
+    </section>
+  </div>
+</PlayfulLayout>
