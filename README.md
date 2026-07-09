@@ -1,12 +1,14 @@
 # 🛡️ Cybersecurity Educational Website
 
-Learn how to recognize cyber threats, protect your personal information, and build safer digital habits through interactive lessons, real-world examples, and practical cybersecurity tips.
+![Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01?logo=astro)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript)
+![Status](https://img.shields.io/badge/Status-Active-success)
 
-<p align="center">
-  <img src="images/banner.png" alt="Cybersecurity Educational Website Banner" width="100%">
-</p>
+**An interactive educational website that teaches users how to recognize cyber threats, protect personal information, and build safer digital habits through practical lessons, real-world examples, and engaging quizzes.**
 
-This project is an educational website designed to make cybersecurity accessible to everyone. Instead of overwhelming users with technical jargon, it explains common cyber threats using clear language, real-world examples, and practical tips that anyone can apply.
+Whether you're a student, parent, teacher, or simply someone who wants to become more cyber-aware, this website provides beginner-friendly resources to help you stay safe online.
+
+This project makes cybersecurity accessible without overwhelming users with technical jargon. It explains common cyber threats using clear language, realistic examples, and practical tips that anyone can apply.
 
 ## 📚 Topics Covered
 
@@ -41,7 +43,9 @@ Cyberattacks are becoming more common every year, and many successful attacks re
 
 ## 🚀 Live Website
 
-[🌐 Visit the Live Website](https://hackproof-tau.vercel.app/)
+➡️ **Try the Website Here**
+
+(https://hackproof-tau.vercel.app/)
 
 ## 🔮 Future Improvements
 
@@ -59,7 +63,7 @@ Cyberattacks are becoming more common every year, and many successful attacks re
 - JavaScript
 - Vercel
 
-## 🎯 Project Goal
+## 🎯 Mission
 
 The mission of this project is to improve cybersecurity awareness by making online safety education simple, engaging, and accessible. By helping users recognize cyber threats before they become victims, the website encourages safer digital habits and promotes responsible technology use.
 
