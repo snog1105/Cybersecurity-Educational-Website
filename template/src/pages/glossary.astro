@@ -1,0 +1,148 @@
+---
+import HomeButton from '../components/HomeButton.astro';
+import PlayfulLayout from '../layouts/PlayfulLayout.astro';
+
+const title = 'Cybersecurity Glossary | HackProof';
+const description = 'Plain-English definitions of common cybersecurity terms, from phishing and malware to symmetric vs. asymmetric encryption.';
+
+const categories = [
+  {
+    id: 'foundations',
+    name: 'Foundational Concepts',
+    terms: [
+      { term: 'Attack surface', def: 'The full set of points where an attacker could try to gain access to a system, such as open ports, login forms, or software with known bugs.' },
+      { term: 'Exploit', def: 'A piece of code or technique that takes advantage of a vulnerability to cause unintended behavior or gain access.' },
+      { term: 'Threat', def: 'Anything with the potential to cause harm to a system, such as an attacker, a piece of malware, or a natural disaster.' },
+      { term: 'Vulnerability', def: 'A weakness in software, hardware, or a process that could be exploited to compromise a system.' },
+      { term: 'Zero-day', def: "A vulnerability that is unknown to the software vendor, meaning there is no patch available yet when it's discovered or exploited." },
+    ],
+  },
+  {
+    id: 'malware',
+    name: 'Malware',
+    terms: [
+      { term: 'Keylogger', def: 'Software that secretly records keystrokes, often to capture passwords and other sensitive information.' },
+      { term: 'Malware', def: 'A general term for malicious software designed to damage, disrupt, or gain unauthorized access to a system.' },
+      { term: 'Ransomware', def: "Malware that encrypts a victim's files and demands payment, usually in cryptocurrency, for the decryption key." },
+      { term: 'Spyware', def: "Malware that secretly monitors a user's activity and collects information without their knowledge." },
+      { term: 'Trojan', def: 'Malware disguised as legitimate software to trick users into installing it themselves.' },
+      { term: 'Worm', def: 'Self-replicating malware that spreads across networks and devices without needing to attach itself to another program.' },
+    ],
+  },
+  {
+    id: 'phishing',
+    name: 'Phishing & Social Engineering',
+    terms: [
+      { term: 'Phishing', def: 'Fraudulent messages, usually email, designed to trick people into revealing sensitive information or installing malware.' },
+      { term: 'Pretexting', def: 'Inventing a fabricated scenario (a "pretext") to convince a target to hand over information or perform an action.' },
+      { term: 'Smishing', def: 'Phishing carried out over SMS text messages instead of email.' },
+      { term: 'Social engineering', def: 'Manipulating people psychologically into breaking normal security procedures or revealing confidential information.' },
+      { term: 'Spear phishing', def: 'A targeted phishing attack aimed at a specific person or organization, often using personal details to seem convincing.' },
+      { term: 'Vishing', def: 'Phishing carried out over phone calls, often impersonating a bank, tech support, or government agency.' },
+    ],
+  },
+  {
+    id: 'cryptography',
+    name: 'Cryptography',
+    terms: [
+      { term: 'Asymmetric encryption', def: 'Encryption that uses a pair of keys, a public key to encrypt data and a private key to decrypt it. Also called public-key cryptography.' },
+      { term: 'Digital signature', def: "A cryptographic technique that verifies a message's authenticity and integrity, proving it came from a specific sender and wasn't altered." },
+      { term: 'Encryption', def: 'Converting data into a coded form so that only someone with the correct key can read it.' },
+      { term: 'Hashing', def: 'Converting data into a fixed-length string (a hash) to verify integrity. Unlike encryption, hashing is one-way and cannot be reversed.' },
+      { term: 'Symmetric encryption', def: 'Encryption that uses a single shared key to both encrypt and decrypt data. Faster than asymmetric encryption, but the key must be shared securely.' },
+      { term: 'TLS/SSL', def: 'Protocols that encrypt data sent between a browser and a website, the "S" in HTTPS.' },
+    ],
+  },
+  {
+    id: 'network',
+    name: 'Network Security',
+    terms: [
+      { term: 'DDoS attack', def: 'A Distributed Denial-of-Service attack that floods a server or network with traffic to make it unavailable to legitimate users.' },
+      { term: 'Firewall', def: 'A system that monitors and filters incoming and outgoing network traffic based on a defined set of security rules.' },
+      { term: 'Intrusion Detection System (IDS)', def: 'A tool that monitors network traffic for suspicious activity and alerts administrators when something looks wrong.' },
+      { term: 'Man-in-the-middle (MITM) attack', def: 'An attack where someone secretly intercepts, and potentially alters, communication between two parties who believe they are talking directly to each other.' },
+      { term: 'VPN (Virtual Private Network)', def: "An encrypted tunnel that routes a device's internet traffic through a remote server, hiding the user's IP address and protecting data in transit." },
+    ],
+  },
+  {
+    id: 'access',
+    name: 'Authentication & Access',
+    terms: [
+      { term: 'Least privilege', def: 'A security principle stating that users and systems should only be given the minimum level of access needed to do their job.' },
+      { term: 'Multi-factor authentication (MFA)', def: 'Requiring two or more independent forms of verification (such as a password plus a code from your phone) to confirm a user\'s identity.' },
+      { term: 'Password manager', def: 'A tool that securely generates and stores unique, complex passwords for each of your accounts.' },
+      { term: 'Two-factor authentication (2FA)', def: 'A specific form of MFA that uses exactly two verification factors, most commonly a password and a one-time code.' },
+    ],
+  },
+];
+---
+
+<PlayfulLayout title={title} description={description}>
+  <div style="max-width:900px;margin:0 auto;text-align:left;">
+    <HomeButton />
+    <h1 class="site-title">Cybersecurity Glossary</h1>
+    <p class="lead" style="text-align:center;">It's easy to mix up terms like phishing and malware, or symmetric and asymmetric encryption. This glossary collects the words used across HackProof's modules in one place, in plain English.</p>
+
+    <section class="card" style="margin-bottom:20px;">
+      <input
+        type="text"
+        id="glossary-search"
+        placeholder="Search for a term, e.g. &quot;phishing&quot; or &quot;encryption&quot;..."
+        aria-label="Search glossary terms"
+      />
+      <div class="tabs" style="margin-top:14px;flex-wrap:wrap;">
+        {categories.map((cat) => (
+          <a class="tab" href={`#${cat.id}`}>{cat.name}</a>
+        ))}
+      </div>
+    </section>
+
+    {categories.map((cat) => (
+      <section class="card glossary-category" id={cat.id} style="margin-bottom:20px;">
+        <h2 class="section-title">{cat.name}</h2>
+        <dl class="glossary-list">
+          {cat.terms.map((entry) => (
+            <div class="glossary-term" data-search={`${entry.term} ${entry.def}`.toLowerCase()}>
+              <dt>{entry.term}</dt>
+              <dd>{entry.def}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    ))}
+
+    <p id="glossary-empty" class="lead" style="text-align:center;display:none;">No terms match your search.</p>
+
+    <section class="card">
+      <h2 class="section-title">Keep Learning</h2>
+      <p>Want the full picture behind any of these terms? Head to <a href="/learning">Learning Modules</a> for a deeper walkthrough, or check <a href="/resources">Resources</a> for the industry frameworks HackProof draws on.</p>
+    </section>
+  </div>
+</PlayfulLayout>
+
+<script>
+  const searchInput = document.getElementById('glossary-search');
+  const categorySections = document.querySelectorAll('.glossary-category');
+  const emptyMessage = document.getElementById('glossary-empty');
+
+  searchInput?.addEventListener('input', () => {
+    const query = searchInput.value.trim().toLowerCase();
+    let anyVisible = false;
+
+    categorySections.forEach((section) => {
+      const terms = section.querySelectorAll('.glossary-term');
+      let categoryHasMatch = false;
+
+      terms.forEach((termEl) => {
+        const matches = !query || (termEl.dataset.search || '').includes(query);
+        termEl.hidden = !matches;
+        if (matches) categoryHasMatch = true;
+      });
+
+      section.hidden = !categoryHasMatch;
+      if (categoryHasMatch) anyVisible = true;
+    });
+
+    if (emptyMessage) emptyMessage.style.display = anyVisible ? 'none' : 'block';
+  });
+</script>
