@@ -1,4 +1,4 @@
-# 🛡️ Cybersecurity Educational Website
+# 🛡️ HackProof: Cybersecurity Educational Website
 
 ![Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01?logo=astro)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript)
