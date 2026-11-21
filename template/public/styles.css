@@ -16,6 +16,10 @@
 
 /* Basic reset */
 *{box-sizing:border-box}
+/* Without this, the hidden attribute can be silently overridden by any
+   element's own display:flex/inline-flex (e.g. .btn, .challenge-choices),
+   since author CSS outranks the browser's default [hidden]{display:none}. */
+[hidden]{display:none !important}
 html,body,#root{height:100%}
 body{
   margin:0;

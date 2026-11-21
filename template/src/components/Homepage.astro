@@ -95,10 +95,30 @@ import background from '../assets/background.svg';
 			<h2 class="section-title">Try a Cyber Challenge</h2>
 			<div class="challenge-grid">
 				<div class="challenge-card">
-					<strong>Subject:</strong> Urgent Account Verification Required
-					<p class="muted">“Your account has been temporarily locked. Click the link below to verify your identity immediately.”</p>
-					<a class="btn" href="/content-analysis" style="margin-top:8px;">Analyze This Message</a>
-				</div>
+  					<h3>Is This a Scam?</h3>
+  					<p id="challenge-progress">Scenario 1 of 3</p>
+			<div id="challenge-message">
+  				<p><strong>From:</strong> alerts@securepay-support-verify.com</p>
+  				<p><strong>Subject:</strong> Unusual Sign-in Attempt Detected</p>
+  				<p class="muted">
+    				"We detected a login from an unrecognized device in a different country.
+    				If this wasn't you, verify your identity within 24 hours or your account
+    				will be permanently suspended. Click here to verify now."
+  				</p>
+			</div>
+			<div id="challenge-choices" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;">
+    			<button id="btn-safe" class="btn secondary" type="button">
+        			✅ Looks Safe
+				</button>
+    			<button id="btn-suspicious" class="btn" type="button">
+        			⚠️ Looks Suspicious
+    			</button>
+			</div>
+
+			<div id="challenge-feedback" class="feedback" hidden></div>
+			<button id="btn-next" class="btn" type="button" hidden>Next →</button>
+
+			</div>
 				<div class="tip-and-journey">
 					<div class="tip-box">
 						<strong>Cyber Tip of the Day</strong>
@@ -143,3 +163,155 @@ import background from '../assets/background.svg';
 		</footer>
 	</main>
 </div>
+<script>
+  const scenarios = [
+    {
+      from: "alerts@securepay-support-verify.com",
+      subject: "Unusual Sign-in Attempt Detected",
+      body: "We detected a login from an unrecognized device in a different country. If this wasn't you, verify your identity within 24 hours or your account will be permanently suspended. Click here to verify now.",
+      isSuspicious: true,
+      explanation: "This message creates urgency and threatens account suspension to pressure you into clicking a suspicious link."
+    },
+    {
+      from: "statements@northfield-creditunion.com",
+      subject: "Your December E-Statement Is Ready",
+      body: "Hi Jordan, your December account statement is now available. Log in to your account directly to view it. No immediate action is needed.",
+      isSuspicious: false,
+      explanation: "This message doesn't pressure you to click a link or share personal information. However, you should still verify unexpected messages by visiting the organization's official website directly."
+    },
+    {
+      from: "rewards@teamspirit-appreciation.net",
+      subject: "You've Earned a $100 Appreciation Reward!",
+      body: "Congratulations! You've been selected for a $100 Employee Appreciation gift card. Claim your reward within 2 hours by entering your employee ID and email address.",
+      isSuspicious: true,
+      explanation: "This message uses the promise of a reward and a short deadline to pressure you into sharing personal information."
+    }
+  ];
+
+  let currentIndex = 0;
+  let score = 0;
+
+  const messageEl = document.getElementById("challenge-message");
+  const progressEl = document.getElementById("challenge-progress");
+  const feedbackEl = document.getElementById("challenge-feedback");
+  const nextBtn = document.getElementById("btn-next");
+  const safeBtn = document.getElementById("btn-safe");
+  const suspiciousBtn = document.getElementById("btn-suspicious");
+  const choicesEl = document.getElementById("challenge-choices");
+
+function renderScenario() {
+    if (!messageEl || !progressEl) return;
+
+    const scenario = scenarios[currentIndex];
+
+    messageEl.innerHTML = `
+        <p><strong>From:</strong> ${scenario.from}</p>
+        <p><strong>Subject:</strong> ${scenario.subject}</p>
+        <p class="muted">${scenario.body}</p>
+    `;
+
+    progressEl.textContent = `Scenario ${currentIndex + 1} of ${scenarios.length}`;
+	}
+
+function handleAnswer(userGuessSuspicious: boolean) {
+    if (!feedbackEl || !nextBtn || !safeBtn || !suspiciousBtn) return;
+
+    const scenario = scenarios[currentIndex];
+
+    // Check whether the user's answer is correct
+    const isCorrect = userGuessSuspicious === scenario.isSuspicious;
+
+    // Increase the score for a correct answer
+    if (isCorrect) {
+        score++;
+    }
+
+    // Prepare the feedback message
+    const resultText = isCorrect ? "✅ Correct!" : "❌ Not quite.";
+    const resultClass = isCorrect ? "correct" : "incorrect";
+
+    // Display feedback and explanation
+    feedbackEl.innerHTML = `<span class="${resultClass}">${resultText}</span> ${scenario.explanation}`;
+
+    // Reveal feedback and Next button
+    feedbackEl.hidden = false;
+    nextBtn.hidden = false;
+
+    // Prevent the user from answering twice
+    safeBtn.setAttribute("disabled", "");
+    suspiciousBtn.setAttribute("disabled", "");
+}
+
+// Move to the next scenario
+function goToNext() {
+    currentIndex++;
+
+    if (currentIndex < scenarios.length) {
+        if (!feedbackEl || !nextBtn || !safeBtn || !suspiciousBtn) return;
+
+        // Hide previous feedback
+        feedbackEl.hidden = true;
+        nextBtn.hidden = true;
+
+        // Enable answer buttons for the next scenario
+        safeBtn.removeAttribute("disabled");
+        suspiciousBtn.removeAttribute("disabled");
+
+        // Display the next scenario
+        renderScenario();
+
+    } else {
+        if (!messageEl || !progressEl || !feedbackEl || !nextBtn || !choicesEl) return;
+
+        // Display final score
+        messageEl.innerHTML = `
+            <h3>Challenge Complete!</h3>
+            <p>You got ${score} out of ${scenarios.length} correct!</p>
+            <p class="muted">
+                Keep practicing to improve your ability to recognize online scams.
+            </p>
+            <button id="btn-restart" class="btn secondary" type="button" style="margin-top:8px;">Restart Challenge</button>
+        `;
+
+        // Hide elements that are no longer needed
+        progressEl.hidden = true;
+        feedbackEl.hidden = true;
+        nextBtn.hidden = true;
+        choicesEl.hidden = true;
+
+        // The restart button only exists in the DOM now that we've just
+        // created it above, so it has to be looked up and wired up here
+        document.getElementById("btn-restart")?.addEventListener("click", restartChallenge);
+    }
+}
+
+// Reset the activity back to the first scenario
+function restartChallenge() {
+    currentIndex = 0;
+    score = 0;
+
+    if (!progressEl || !choicesEl || !feedbackEl || !nextBtn || !safeBtn || !suspiciousBtn) return;
+
+    // Show the elements the final score screen had hidden
+    progressEl.hidden = false;
+    choicesEl.hidden = false;
+    feedbackEl.hidden = true;
+    nextBtn.hidden = true;
+
+    // Re-enable the answer buttons in case the last scenario left them disabled
+    safeBtn.removeAttribute("disabled");
+    suspiciousBtn.removeAttribute("disabled");
+
+    renderScenario();
+}
+
+	// Display the first scenario when the page loads
+	renderScenario();
+
+	// Connect the answer buttons
+	safeBtn?.addEventListener("click", () => handleAnswer(false));
+	suspiciousBtn?.addEventListener("click", () => handleAnswer(true));
+
+	// Connect the Next button
+	nextBtn?.addEventListener("click", goToNext);
+	</script>
